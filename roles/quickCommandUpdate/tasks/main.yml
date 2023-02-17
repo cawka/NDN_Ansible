@@ -4,9 +4,9 @@
 
 #- name: check sysctl 
 - name: update asf strategy
-  #script: roles/quickCommandUpdate/files/checkSysctl.sh
+  script: roles/quickCommandUpdate/files/checkSysctl.sh
   #script: roles/quickCommandUpdate/files/updateSysctl.sh
-  script: roles/quickCommandUpdate/files/setAsfTimeouts.sh
+  #script: roles/quickCommandUpdate/files/setAsfTimeouts.sh
   register: sysctl
 
 #- debug: msg="{{ sysctl.stdout }}"

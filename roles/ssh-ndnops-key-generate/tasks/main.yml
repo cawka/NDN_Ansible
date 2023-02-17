@@ -1,0 +1,15 @@
+---
+# tasks file for ssh-ndnops-key-generate
+
+- name: Check if SSH key pair already generated
+  stat:
+    path: /home/ndnops/.ssh/id_rsa
+  register: ssh_rsa_key_generated
+
+- name: Generate SSH key pair
+  command: "ssh-keygen -b 2048 -t rsa -f /home/ndnops/.ssh/id_rsa -N \"\""
+  when: ssh_rsa_key_generated.stat.exists == False
+
+- name: Fetch SSH public key
+  fetch: flat=true src=/home/ndnops/.ssh/id_rsa.pub dest=export/id_rsa-{{inventory_hostname}}.pub
+

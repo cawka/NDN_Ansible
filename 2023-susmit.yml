@@ -1,0 +1,9 @@
+---
+- name: Run susmit experiment
+  gather_facts: no
+  hosts: ['UCLA', 'WU']
+  remote_user: ndnops
+
+  roles: 
+  - {role: 'ssh-ndnops-key-generate', tag: 'ssh'}
+

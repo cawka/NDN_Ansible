@@ -1,0 +1,10 @@
+---
+# tasks file for 2023-susmit-ndndump
+- name: install docker
+  apt:
+    name: ['docker.io']
+
+- name: build ndn6dump
+  shell: docker build -t ndn6dump 'github.com/yoursunny/ndn6dump#main'
+  become_user: root
+
