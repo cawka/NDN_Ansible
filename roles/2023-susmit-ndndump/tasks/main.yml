@@ -8,3 +8,13 @@
   shell: docker build -t ndn6dump 'github.com/yoursunny/ndn6dump#main'
   become_user: root
 
+- name: git ndntdump
+  git: repo=https://github.com/tntech-ngin/capture-systemd.git
+       dest=/home/ndnops/ndntdump
+       update=yes
+  register: gitclone
+
+- command: ./setup.sh
+  args:
+    chdir: /home/ndnops/ndntdump
+  when: gitclone.changed
