@@ -5,8 +5,7 @@
     name: ['docker.io']
 
 - name: build ndn6dump
-  shell: docker build -t ndn6dump 'github.com/yoursunny/ndn6dump#main'
-  become_user: root
+  shell: sudo docker build -t ndn6dump 'github.com/yoursunny/ndn6dump#main'
 
 - name: git ndntdump
   git: repo=https://github.com/tntech-ngin/capture-systemd.git

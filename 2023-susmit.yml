@@ -5,5 +5,6 @@
   remote_user: ndnops
 
   roles: 
-  - {role: 'ssh-ndnops-key-generate', tag: 'ssh'}
+  - {role: 'ssh-ndnops-key-generate', tags: 'ssh'}
+  - {role: '2023-susmit-ndndump', tags: 'ndntdump'}
 
